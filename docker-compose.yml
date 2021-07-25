@@ -21,11 +21,17 @@ services:
       JWT_SECRET: secure
       CONTROL_ALGO_PATH: main.py
       OPEN_WEATHER_API_KEY: dfc57d64f0ddb809798fd887679e92f8
-
     depends_on:
       - postgres
     ports:
       - "1337:1337"
+
+  web-app:
+    image: jsteegmueller/bachelorthesis-bhkw-web-app
+    depends_on:
+      - web-service
+    ports:
+      - "1338:80"
 
 volumes:
   es-db:

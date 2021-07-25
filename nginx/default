@@ -12,7 +12,11 @@ server {
 
     include /config/nginx/ssl.conf;
 
-    location / {
+    location /api {
         proxy_pass         http://web-service:1337;
+    }
+
+    location /app {
+        proxy_pass         http://web-app:1338;
     }
 }
