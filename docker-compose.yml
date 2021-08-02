@@ -9,6 +9,7 @@ services:
       - "5432:5432"
     volumes:
       - es-db:/var/lib/postgresql/data
+    restart: always
 
   web-service:
     image: jsteegmueller/bachelorthesis-bhkw
@@ -25,6 +26,7 @@ services:
       - postgres
     ports:
       - "1337:1337"
+    restart: always
 
   web-app:
     image: jsteegmueller/bachelorthesis-bhkw-web-app
@@ -32,6 +34,7 @@ services:
       - web-service
     ports:
       - "1338:80"
+    restart: always
 
 volumes:
   es-db:
